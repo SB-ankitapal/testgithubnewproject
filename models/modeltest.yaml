@@ -7,3 +7,4 @@ properties:
     type: string
     x-stoplight:
       id: 4tfkmx0ogfcwr
+description: Model description
