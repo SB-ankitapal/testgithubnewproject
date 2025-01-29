@@ -7,3 +7,5 @@ properties:
     type: string
     x-stoplight:
       id: 4tfkmx0ogfcwr
+x-tags:
+  - testop
