@@ -1,0 +1,34 @@
+{
+  "name": "TestGithubNewProject",
+  "description": "",
+  "spectralExtends": [],
+  "extends": [],
+  "formats": [
+    "oas2",
+    "oas3",
+    "oas3.0",
+    "oas3.1"
+  ],
+  "aliases": {},
+  "rules": {
+    "testrule": {
+      "id": "vBIMZySy9GXa8N9sXifop",
+      "given": [],
+      "severity": "error",
+      "then": {
+        "function": "undefined"
+      },
+      "name": "testrule",
+      "message": "msg"
+    }
+  },
+  "x-embeddedFunctions": [
+    {
+      "id": "LzItjkhI2ugGg3OhQkcTm",
+      "extendedFrom": "",
+      "name": "oasDiscriminator-duplicate",
+      "content": "function isObject(value) {\n  return value !== null && typeof value === 'object';\n}\n\nexport const oasDiscriminator = (schema, _opts, { path }) => {\n  /**\n   * This function verifies:\n   *\n   * 1. The discriminator property name is defined at this schema.\n   * 2. The discriminator property is in the required property list.\n   */\n\n  if (!isObject(schema)) return;\n\n  if (typeof schema.discriminator !== 'string') return;\n\n  const discriminatorName = schema.discriminator;\n\n  const results = [];\n\n  if (!isObject(schema.properties) || !Object.keys(schema.properties).some(k => k === discriminatorName)) {\n    results.push({\n      message: `The discriminator property must be defined in this schema.`,\n      path: [...path, 'properties'],\n    });\n  }\n\n  if (!Array.isArray(schema.required) || !schema.required.some(n => n === discriminatorName)) {\n    results.push({\n      message: `The discriminator property must be in the required property list.`,\n      path: [...path, 'required'],\n    });\n  }\n\n  return results;\n};\n\nexport default oasDiscriminator;\n"
+    }
+  ],
+  "extendedDefault": false
+}
