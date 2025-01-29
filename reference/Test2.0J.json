@@ -313,6 +313,27 @@
       "x-stoplight": {
         "id": "66v3vr0go8iqy"
       }
+    },
+    "testuser": {
+      "title": "testuser",
+      "x-stoplight": {
+        "id": "qnakoam5e53c7"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "x-stoplight": {
+            "id": "whqi79dc08hgi"
+          }
+        }
+      },
+      "description": "model description"
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "testingtheopposite"
+    }
+  ]
 }
